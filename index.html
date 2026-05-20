@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>城市微光 H5</title>
+  <meta name="description" content="一个简单、可访问的 H5 展示页">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5b6470;
+      --line: rgba(23, 32, 42, 0.14);
+      --paper: #fffdf7;
+      --accent: #e84f35;
+      --accent-2: #15847f;
+      --gold: #f0b84f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(12, 18, 26, 0.18), rgba(12, 18, 26, 0.72)),
+        url("https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1600&q=80") center/cover;
+    }
+
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px clamp(18px, 5vw, 64px);
+      color: #fff;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 18px;
+      opacity: 0.9;
+    }
+
+    .hero-content {
+      width: min(960px, 100%);
+      padding: 0 clamp(22px, 6vw, 80px) 11vh;
+      color: #fff;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(42px, 8vw, 96px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 600px;
+      margin: 22px 0 32px;
+      font-size: clamp(17px, 2.4vw, 23px);
+      line-height: 1.7;
+      opacity: 0.94;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    main {
+      padding: 48px clamp(18px, 5vw, 64px) 64px;
+    }
+
+    .section-title {
+      margin: 0 0 22px;
+      font-size: clamp(26px, 4vw, 44px);
+      letter-spacing: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 1120px;
+    }
+
+    .card {
+      min-height: 170px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .band {
+      margin-top: 42px;
+      padding: 28px;
+      max-width: 1120px;
+      border-left: 5px solid var(--accent-2);
+      background: #eef9f7;
+    }
+
+    .band p {
+      margin: 0;
+      color: #234744;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 24px clamp(18px, 5vw, 64px);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        padding-top: 16px;
+      }
+
+      .nav a {
+        margin-left: 12px;
+      }
+
+      .hero {
+        min-height: 88vh;
+      }
+
+      .hero-content {
+        padding-bottom: 9vh;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <nav class="nav" aria-label="页面导航">
+      <div class="brand">城市微光</div>
+      <div>
+        <a href="#features">亮点</a>
+        <a href="#contact">联系</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div class="kicker"><span class="dot"></span> 一个简单上线的 H5 示例</div>
+      <h1>把想法，放到每个人手机里。</h1>
+      <p class="lead">这是一个轻量、响应式、适合活动展示或产品预热的 H5 页面。打开链接即可访问，手机和电脑都能看。</p>
+      <div class="actions">
+        <a class="button primary" href="#features">查看内容</a>
+        <a class="button" href="#contact">马上联系</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <h2 id="features" class="section-title">页面亮点</h2>
+    <div class="grid">
+      <article class="card">
+        <strong>移动端优先</strong>
+        <p>适配微信、手机浏览器和桌面端，文字与按钮在小屏幕上也保持清晰。</p>
+      </article>
+      <article class="card">
+        <strong>快速加载</strong>
+        <p>纯静态页面，部署简单，适合宣传页、邀请页、作品页和临时活动页。</p>
+      </article>
+      <article class="card">
+        <strong>容易替换</strong>
+        <p>文案、图片、颜色和按钮都能继续改成你的品牌或活动内容。</p>
+      </article>
+    </div>
+
+    <section id="contact" class="band">
+      <p>如果这是正式项目，可以继续加报名表、电话按钮、微信二维码、地图、背景音乐或分享海报。</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 城市微光 H5 Demo
+  </footer>
+</body>
+</html>
