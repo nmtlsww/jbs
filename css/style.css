@@ -53,11 +53,19 @@ body { display: flex; justify-content: center; }
   left: 21.785%;           /* 205/941 */
   top: 70.694%;            /* 1182/1672 */
   width: 53.879%;          /* 507/941 */
-  height: 16.029%;         /* 268/1672 */
+  height: 13.46%;          /* 一页正好 5 行（5 × 45 设计px ÷ 1672） */
   overflow-y: auto;
-  scrollbar-width: none;
+  overscroll-behavior: contain;        /* 滚到边界不连带翻整页 */
+  -webkit-overflow-scrolling: touch;   /* iOS 惯性滚动 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(214, 186, 130, 0.55) transparent;
 }
-.records::-webkit-scrollbar { display: none; }
+.records::-webkit-scrollbar { width: 3px; }
+.records::-webkit-scrollbar-thumb {
+  background: rgba(214, 186, 130, 0.55);
+  border-radius: 3px;
+}
+.records::-webkit-scrollbar-track { background: transparent; }
 
 .record-row {
   display: flex;
