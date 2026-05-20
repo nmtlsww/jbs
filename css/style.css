@@ -1,0 +1,78 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: #0A0A12; min-height: 100%; }
+body { display: flex; justify-content: center; }
+
+.stage { position: relative; width: min(100vw, 480px); }
+
+.bg { display: block; width: 100%; height: auto; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  container-type: inline-size;
+}
+
+/* 剩余次数数字（替换原图 23；/30 属底图不动） */
+.count {
+  position: absolute;
+  right: 46.227%;          /* 435/941，右对齐锚定 x506 */
+  top: 50.718%;            /* 848/1672，数字竖直中心 */
+  transform: translateY(-50%);
+  font-family: Georgia, 'Times New Roman', 'Songti SC', serif;
+  font-weight: 600;
+  font-size: 7.86cqw;      /* 设计 ≈74px，字形高 52px */
+  line-height: 1;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #FFF6E2 0%, #F2DBAE 55%, #E4C088 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 0.5cqw rgba(255, 214, 150, 0.4);
+}
+
+/* 使用按钮透明热区 */
+.use-hit {
+  position: absolute;
+  left: 30.818%;           /* 290/941 */
+  top: 58.852%;            /* 984/1672 */
+  width: 39.532%;          /* 372/941 */
+  height: 5.024%;          /* 84/1672 */
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.use-hit:disabled { cursor: default; }
+
+/* 使用记录列表 */
+.records {
+  position: absolute;
+  left: 21.785%;           /* 205/941 */
+  top: 70.694%;            /* 1182/1672 */
+  width: 53.879%;          /* 507/941 */
+  height: 16.029%;         /* 268/1672 */
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.records::-webkit-scrollbar { display: none; }
+
+.record-row {
+  display: flex;
+  align-items: center;
+  height: 4.78cqw;         /* 设计 45px */
+  font-family: Georgia, 'Times New Roman', 'Songti SC', serif;
+  font-size: 2.44cqw;      /* 设计 ≈23px */
+  color: #C2AAA0;
+  white-space: nowrap;
+}
+.record-row .r-icon {
+  flex: none;
+  width: 2.76cqw;          /* 设计 ≈26px */
+  height: 2.76cqw;
+  margin-left: 5.74cqw;    /* 设计 54px：图标左边缘 */
+  object-fit: contain;
+}
+.record-row .r-date { margin-left: 3.08cqw; }   /* 设计 29px：图标到日期 */
+.record-row .r-time { margin-left: auto; margin-right: 3.29cqw; } /* 设计 31px：距右边缘 */
