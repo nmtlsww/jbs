@@ -56,9 +56,9 @@ def build_bg():
     # 记录区：面板有竖直渐变 + 横向暗角，上下两带插值
     g = _grain_std(arr, (240, 1418, 660, 1445))
     _fill(arr, RECORDS_BOX, (1172, 1179), (1416, 1444), g, rng)
-    # 抹掉烘焙的"3"（徽章"30次卡"、卡片"/30"），页面用 DOM 在原位叠"2"
+    # 抹掉烘焙的旧数字（徽章"30次卡"整个"30"、卡片"/30"的"3"），页面用 DOM 叠新数字
     mask = np.zeros(arr.shape[:2], np.uint8)
-    mask[472:521, 394:426] = 255   # 徽章 "30" 的 "3"
+    mask[472:521, 394:458] = 255   # 徽章 "30次卡" 的整个 "30"
     mask[845:876, 524:545] = 255   # 卡片 "/30" 的 "3"
     arr = cv2.inpaint(arr, mask, 3, cv2.INPAINT_TELEA)
     out = os.path.join(ASSETS, 'bg.png')
