@@ -5,7 +5,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  var MAX_USES = 30;
+  var MAX_USES = 20;
   var STORAGE_KEY = 'script_kill_card_state';
 
   function pad2(n) { return String(n).padStart(2, '0'); }

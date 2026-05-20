@@ -32,6 +32,34 @@ body { display: flex; justify-content: center; }
   text-shadow: 0 0 0.5cqw rgba(255, 214, 150, 0.4);
 }
 
+/* 徽章 "20次卡" 里替换掉烘焙 "3" 的 "2"（白色粗体带辉光） */
+.badge-two {
+  position: absolute;
+  left: 43.57%;            /* 410/941，原 "3" 水平中心 */
+  top: 29.70%;             /* 496.5/1672，原 "3" 竖直中心 */
+  transform: translate(-50%, -50%);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 6.16cqw;      /* 设计 ≈58px，字形高 ≈41px */
+  font-variant-numeric: lining-nums;  /* 等高数字 */
+  line-height: 1;
+  color: #F7F8FB;
+  text-shadow: 0 0 0.8cqw rgba(150, 165, 255, 0.7);
+}
+
+/* 卡片 "/20" 里替换掉烘焙 "3" 的 "2"（浅色衬线） */
+.denom-two {
+  position: absolute;
+  left: 56.80%;            /* 534.5/941，原 "3" 水平中心 */
+  top: 51.46%;             /* 860.5/1672，原 "3" 竖直中心 */
+  transform: translate(-50%, -50%);
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 4.64cqw;      /* 设计 ≈44px，字形高 ≈27px */
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: #EAE4DE;
+}
+
 /* 使用按钮透明热区 */
 .use-hit {
   position: absolute;
